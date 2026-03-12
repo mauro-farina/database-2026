@@ -1,27 +1,27 @@
 ```mermaid
 erDiagram
     studenti {
-        CHAR_9 matricola PK
-        VARCHAR_50 nome
-        VARCHAR_50 cognome
-        CHAR_16 cf UK
+        CHAR(9) matricola PK
+        VARCHAR nome
+        VARCHAR cognome
+        CHAR(16) cf UK
     }
     professori {
         INT matricola PK
-        VARCHAR_50 nome
-        VARCHAR_50 cognome
-        CHAR_16 cf UK
-        VARCHAR_12 settore
+        VARCHAR nome
+        VARCHAR cognome
+        CHAR(16) cf UK
+        VARCHAR settore
     }
     corsi {
-        CHAR_5 codice PK
-        VARCHAR_100 nome
+        CHAR(5) codice PK
+        VARCHAR nome
         TINYINT cfu
         INT professore FK
     }
     esami {
-        CHAR_5 corso FK
-        CHAR_9 studente FK
+        CHAR(5) corso FK
+        CHAR(9) studente FK
         DATE data
         TINYINT voto
         BOOL lode
