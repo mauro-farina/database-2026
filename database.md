@@ -27,7 +27,7 @@ erDiagram
         BOOL lode
     }
 
-    corsi }o--o| professori : "professore → matricola"
-    esami }o--|| corsi : "corso → codice"
-    esami }o--|| studenti : "studente → matricola"
+    corsi }o--o| professori : "corsi.professore → professori.matricola"
+    esami }o--|| corsi : "esami.corso → corsi.codice"
+    esami }o--|| studenti : "esami.studente → studente.matricola"
 ```
