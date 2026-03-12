@@ -1,32 +1,33 @@
 ```mermaid
 erDiagram
     studenti {
-        char(9) matricola PK
-        varchar(45) nome
-        varchar(45) cognome
-        char(16) cf
+        CHAR_9 matricola PK
+        VARCHAR_50 nome
+        VARCHAR_50 cognome
+        CHAR_16 cf UK
     }
     professori {
-        int matricola PK
-        varchar(45) nome
-        varchar(45) cognome
-        char(16) cf
-        varchar(12) settore
+        INT matricola PK
+        VARCHAR_50 nome
+        VARCHAR_50 cognome
+        CHAR_16 cf UK
+        VARCHAR_12 settore
     }
     corsi {
-        char(5) codice PK
-        varchar(45) nome
-        tinyint cfu
-        int professore FK
+        CHAR_5 codice PK
+        VARCHAR_100 nome
+        TINYINT cfu
+        INT professore FK
     }
     esami {
-        char(5) corso PK,FK
-        char(9) studente PK,FK
-        date data
-        tinyint voto
-        bool lode
+        CHAR_5 corso FK
+        CHAR_9 studente FK
+        DATE data
+        TINYINT voto
+        BOOL lode
     }
-    professori ||--|| corsi : " "
-    studenti ||--|| esami : " "
-    corsi ||--|| esami : " "
+
+    corsi }o--o| professori : "professore → matricola"
+    esami }o--|| corsi : "corso → codice"
+    esami }o--|| studenti : "studente → matricola"
 ```
